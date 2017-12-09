@@ -1,0 +1,11 @@
+.slogan {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.slogan .lead {
+    font-size: 50px;
+}

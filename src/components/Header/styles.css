@@ -1,0 +1,40 @@
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+}
+
+.header-main h1 {
+    color: #fff;
+    font-size: 30px;
+}
+
+.header-main .nav {
+    list-style: none;
+}
+
+.header-main .nav li {
+    display: inline;
+}
+
+.header-main .nav li a {
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.header-main .nav li a:hover {
+    text-decoration: underline;
+}
+
+.header-main .nav li:last-child a {
+    border-radius: 5px;
+    border: 1px solid #fff;
+    transition: background 0.5s;
+}
+
+.header-main .nav li:last-child a:hover {
+    text-decoration: none;
+    background: #fff;
+    color: #000;
+}
