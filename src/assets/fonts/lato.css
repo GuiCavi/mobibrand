@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Lobster';
+    src: url('./Lato-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Lobster';
+    font-weight: 'bold';
+    src: url('./Lato-Bold.ttf');
+}

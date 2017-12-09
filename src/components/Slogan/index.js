@@ -12,7 +12,7 @@ class Slogan extends Component {
         return (
             <div className="slogan">
                 <p className="lead">Criar a identidade visual da sua imobiliária</p>
-                <p className="lead">nunca foi tão fácil</p>
+                <p className="lead">nunca foi tão fácil!</p>
                 
                 <InputWithText />
             </div>
