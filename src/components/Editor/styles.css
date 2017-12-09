@@ -1,0 +1,143 @@
+.container-editor{
+    /*display: flex;*/
+    padding: 45px;
+}
+
+.editor{
+    //margin-left: 15px;
+}
+
+.editor h3{
+    /*color: black;*/
+    margin-bottom: 10px;
+}
+
+.topbar{
+    margin-bottom: 10px;
+    color: black;
+    display: flex;
+    flex-direction: row;
+}
+
+.controls{
+    /*background-color: red;*/
+    display: flex;
+    /*flex-direction: row;*/
+    flex: 2;
+    /*flex-direction: column-reverse;*/
+    flex-direction: row;
+    text-align: right;
+}
+
+.control-item{
+    /*flex: 1;*/
+    margin-right: 15px;
+}
+
+.label-control{
+    margin-right: 5px;
+}
+
+.box{
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas-editor{
+
+}
+
+.background-controls{
+    display: flex;
+    flex: 1;
+    /*justify-content: center;*/
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.editor{
+    flex: 1;
+    border: 1px solid #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.components{
+    /*margin-left: 15px;*/
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 50px;
+    /*height: 100%;*/
+    background-color: #484848;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.button-change{
+    background-color: #484848;
+    padding: 7px 15px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.components h3{
+    /*color: black;*/
+    margin-bottom: 10px;
+}
+
+.canvas-container{
+    border: 1px solid #e7e7e7;
+    margin: 20px;
+}
+
+.component-list{
+    /*border: 1px solid #e7e7e7;*/
+    border-radius: 5px;
+}
+
+.components-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.button-component{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+.button-component:hover{
+    opacity: 0.7;
+}
+
+.component-icon{
+    /*display: block;*/
+    height: 45px;
+    fill: #fff;
+    /*margin-bottom: 0px;*/
+}
+
+.text-controls{
+    display: flex;
+    flex: 3;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    /*flex-direction: row-reverse;*/
+    /*border: 1px solid #e7e7e7;*/
+}
+
+.text-controls label{
+    /*color: black;*/
+}
