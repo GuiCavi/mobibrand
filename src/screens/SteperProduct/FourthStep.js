@@ -4,11 +4,10 @@ import classNames from 'classnames';
 
 import {
     SteperBullets,
-    Button,
-    Input
+    Button
 } from '../../components';
 
-class SecondStep extends Component {
+class FourthStep extends Component {
     render() {
         const stepClass = classNames({
             'step': true,
@@ -36,11 +35,8 @@ class SecondStep extends Component {
                     </div>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', flex: 1, alignSelf: 'stretch' }}>
-                    <Input placeholder="Nome da imobiliária" />
-                    <Input placeholder="Telefone" />
-                    <Input placeholder="Site da imobiliária" />
-                    <Input placeholder="CRECI" />                    
+                <div style={{ display: 'flex', justifyContent: 'space-between', flex: 1, alignSelf: 'stretch', marginLeft: -40, marginRight: -40 }}>
+                    
                 </div>
 
                 <div>
@@ -59,4 +55,4 @@ class SecondStep extends Component {
     }
 }
 
-export default SecondStep;
+export default FourthStep;

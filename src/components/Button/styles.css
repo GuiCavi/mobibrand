@@ -17,6 +17,10 @@
     color: #95989a;
     text-transform: uppercase;
 }
+.button-secondary:hover {
+    color: rgba(149, 152, 154, 0.699) !important;
+    background-color: transparent !important;
+}
 
 .button-outline {
     border: 2px solid #90de9f;

@@ -8,6 +8,7 @@ import Steper from './Steper';
 import SteperBullets from './SteperBullets';
 import SelectableTemplates from './SelectableTemplates';
 import RadioButton from './RadioButton';
+import Input from './Input';
 
 export {
     Button,
@@ -19,5 +20,6 @@ export {
     Steper,
     SteperBullets,
     SelectableTemplates,
-    RadioButton
+    RadioButton,
+    Input
 }

@@ -9,7 +9,7 @@ class Steper extends Component {
         super();
 
         this.state = {
-            currentStep: 0
+            currentStep: 2
         }
     }
 
