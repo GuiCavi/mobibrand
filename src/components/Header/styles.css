@@ -16,6 +16,11 @@
 .header-main .nav li a {
     padding: 10px 20px;
     text-decoration: none;
+    transition: color 0.1s linear;
+}
+
+.header-main .nav li a:hover {
+    color: #40b957;
 }
 
 .header-main .nav li:last-child a:hover {
