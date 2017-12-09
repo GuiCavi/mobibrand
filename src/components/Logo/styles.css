@@ -6,3 +6,13 @@
     color: #fff;
     font-size: 30px;
 }
+
+.logo.fixed {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.logo.dark {
+    color: #000;
+}

@@ -17,6 +17,7 @@
     padding: 10px 20px;
     text-decoration: none;
     transition: color 0.1s linear;
+    color: #fff;
 }
 
 .header-main .nav li a:hover {

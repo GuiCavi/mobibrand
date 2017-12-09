@@ -17,7 +17,7 @@ class InputWithText extends Component {
         return (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '70%', marginTop: 40 }}>
                 <input className={inputClass} placeholder="Digite o nome da imobiliária para começar..." />
-                <button className={btnClass}>Começar agora</button>
+                <a href='/product/register' className={btnClass}>Começar agora</a>
             </div>
         );
     }
