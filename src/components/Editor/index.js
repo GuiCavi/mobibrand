@@ -157,6 +157,8 @@ class Editor extends Component {
             // console.log(this.canvas.getActiveObject());
             console.log(this.canvas.getActiveObject().get('type'));
 
+            this.canvas.getActiveObject().bringToFront();
+
             //reset
             this.setState({
                 showTextControls: false,
@@ -165,7 +167,7 @@ class Editor extends Component {
                 showQrCodeControls: false
             });
 
-            if (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text") {
+            if (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text" || this.canvas.getActiveObject().get('type') === "i-text") {
                 //this.refs.textControls.hidden = false;
                 this.setState({
                     showTextControls: true
@@ -197,7 +199,7 @@ class Editor extends Component {
                 showQrCodeControls: false
             });
 
-            if (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text") {
+            if (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text" || this.canvas.getActiveObject().get('type') === "i-text") {
                 //this.refs.textControls.hidden = false;
                 this.setState({
                     showTextControls: true
@@ -533,6 +535,24 @@ class Editor extends Component {
         }
     }
 
+    renderBackgroundControls(){
+        if(!this.state.showQrCodeControls && !this.state.showTextControls && !this.state.showImageControls && !this.state.showShapeControls) {
+            return (
+                <div id="backgroundControls" className="background-controls" ref="backgroundControls">
+                    <div className="control-item">
+                        <label htmlFor="background-color" className="label-control">Cor de fundo:</label>
+                        <input type="color" id="background-color" ref="backgroundColor" size="10" onChange={(e) => {
+                            this.canvas.backgroundColor = this.refs.backgroundColor.value;
+                            this.canvas.renderAll();
+                        }}/>
+                    </div>
+                </div>
+            );
+        }else{
+            return null;
+        }
+    }
+
     render() {
         const canvasClass = classNames({
             'canvas-editor': true
@@ -543,15 +563,7 @@ class Editor extends Component {
                 <div className="topbar">
                     <p style={{flex: 1, fontSize: '14px'}}>Produto: <b style={{flex: 1, fontSize: '18px'}}>{this.state.productText}</b></p>
                     <div className="controls">
-                        <div id="backgroundControls" className="background-controls" ref="backgroundControls">
-                            <div className="control-item">
-                                <label htmlFor="background-color" className="label-control">Cor de fundo:</label>
-                                <input type="color" id="background-color" ref="backgroundColor" size="10" onChange={(e) => {
-                                    this.canvas.backgroundColor = this.refs.backgroundColor.value;
-                                    this.canvas.renderAll();
-                                }}/>
-                            </div>
-                        </div>
+                        {this.renderBackgroundControls()}
                         {this.renderTextControls()}
                         {this.renderImageControls()}
                         {this.renderShapeControls()}
