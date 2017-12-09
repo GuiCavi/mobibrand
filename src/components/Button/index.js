@@ -10,7 +10,8 @@ class Button extends Component {
             'button': true,
             'button-success': this.props.type == 'success',
             'button-cta': this.props.isCta,
-            'button-outline': this.props.outline
+            'button-outline': this.props.outline,
+            'button-secondary': this.props.secondary
         });
 
         return (

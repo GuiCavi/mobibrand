@@ -1,0 +1,54 @@
+.selectable-templates-wrapper {
+    flex: 1;
+    padding: 20px;
+}
+
+.selectable-templates {
+    border: 3px solid transparent;
+    cursor: pointer;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.selectable-templates.active {
+    border-color: #90de9f;
+}
+
+.selectable-templates h3 {
+    font-size: 15px;
+    color: #95989a;
+}
+
+.selectable-templates-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #95989a;
+    font-size: 13px;
+    border: 1px solid #95989a;
+}
+
+.selectable-templates-item.card {
+    width: 50%;
+    height: 25%;
+}
+.selectable-templates-item.banner {
+    width: 50%;
+    height: 60%;
+}
+.selectable-templates-item.stripe {
+    width: 85%;
+    height: 25%;
+}
+
+.selectable-templates-item.board,
+.selectable-templates-item.rent-board,
+.selectable-templates-item.sale-board {
+    width: 60%;
+    height: 30%;
+}

@@ -4,7 +4,7 @@
     color: #fff;
     cursor: pointer;
     border-radius: 10px;
-    background-color: #40b957;  
+    background-color: #90de9f;  
     transition: all 0.25s;
     display: inline-block;
     padding: 8px 16px;
@@ -12,13 +12,19 @@
     font-weight: bold;
 }
 
+.button-secondary {
+    background-color: transparent;
+    color: #95989a;
+    text-transform: uppercase;
+}
+
 .button-outline {
-    border: 2px solid #40b957;
+    border: 2px solid #90de9f;
     background-color: transparent;
 }
 
 .button:hover {
-    background: #40b957;
+    background: #90de9f;
     color: #fff;
 }
 
@@ -34,7 +40,7 @@
     margin: 0;
     margin-top: 40px;
     padding: 15px 50px;
-    background-color: #40b957;
+    background-color: #90de9f;
     color: #fff;
     font-size: 14px;
     text-transform: uppercase;

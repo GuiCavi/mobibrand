@@ -5,5 +5,5 @@ import ProductWizardScreen from './ProductWizardScreen';
 export {
     HomeScreen,
     LoginScreen,
-    ProductWizardScreen
+    ProductWizardScreen,
 }
