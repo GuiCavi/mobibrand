@@ -9,7 +9,7 @@ import {
 class HomeScreen extends Component {
     render() {
         return (
-            <Container>
+            <Container hasImage>
                 <Header />
 
                 <Slogan />

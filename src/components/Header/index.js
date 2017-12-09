@@ -13,10 +13,7 @@ class Header extends Component {
             <header className="header-main">
                 <Logo />
                 <ul className="nav">
-                    <li><a href="#">Menu 1</a></li>
-                    <li><a href="#">Menu 2</a></li>
-                    <li><a href="#">Menu 3</a></li>
-                    <li><a href="/login">Cadastre-se</a></li>
+                    <li><a href="/login">Login</a></li>
                     <Button
                         text='Cadastre-se'
                         outline

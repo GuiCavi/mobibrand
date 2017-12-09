@@ -1,0 +1,24 @@
+.input-with-text-button {
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 15px 15px 0;
+    background-color: #40b957;  
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    padding: 0 26px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.input-with-text-input {
+    border: 0;
+    padding: 0 26px;
+    height: 48px;
+    border-radius: 15px 0 0 15px;
+    flex: 1;
+    font-size: 18px;
+}

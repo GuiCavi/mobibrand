@@ -1,0 +1,12 @@
+.step .step-bullet {
+    width: 13px;
+    height: 13px;
+    border: 2px solid #bbbec1;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.step .step-bullet.active {
+    border-color: #90de9f;
+    background-color: #90de9f;
+}

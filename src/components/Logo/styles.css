@@ -1,5 +1,18 @@
 @import '../../assets/fonts/lobster.css';
 
 .logo {
-    font-family: 'Lobster'
+    font-family: 'Lobster';
+    letter-spacing: 1px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.logo.fixed {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.logo.dark {
+    color: #000;
 }

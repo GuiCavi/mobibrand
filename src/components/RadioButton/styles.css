@@ -1,0 +1,24 @@
+.radio-button {
+    width: 35px;
+    height: 35px;
+    border: 2px solid #95989a;
+    border-radius: 50%;
+}
+
+.radio-button.active {
+    background-color: #90de9f;
+    border-color: #90de9f;
+    position: relative;
+}
+.radio-button.active::after {
+    content: '';
+    background-image: url('../../assets/img/arrow.png');
+    background-size: 45%;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
