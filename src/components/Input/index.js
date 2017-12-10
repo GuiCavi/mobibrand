@@ -8,7 +8,8 @@ class Input extends Component {
     render() {
         const wrapperClass = classNames({
             'input-wrapper': true,
-            'input-login-wrapper': this.props.loginWrapper
+            'input-login-wrapper': this.props.loginWrapper,
+            'input-shipping-wrapper': this.props.shippingWrapper
         })
 
         const inputClass = classNames({
