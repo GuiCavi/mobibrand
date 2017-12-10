@@ -5,13 +5,16 @@ import OrdersScreen from './OrdersScreen';
 import ShippingDataScreen from './ShippingDataScreen';
 import ConclusionScreen from './ConclusionScreen';
 import PaymentDataScreen from './PaymentDataScreen';
+import OrderStatusScreen from './OrderStatusScreen';
 
 export {
     HomeScreen,
     LoginScreen,
     ProductWizardScreen,
-    OrdersScreen,
     ShippingDataScreen,
     ConclusionScreen,
-    PaymentDataScreen
+    PaymentDataScreen,
+    OrderStatusScreen,
+    OrdersScreen,
+    ConclusionScreen
 }
