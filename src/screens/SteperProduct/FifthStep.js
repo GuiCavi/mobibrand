@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import classNames from 'classnames';
 
-import styles from '../../screens/SteperProduct/styles.css';  //do not remove
+import styles from './styles.css';  //do not remove
 
 import {fabric} from 'fabric';
 
-import models from '../../assets/models/all.js'
+import models from '../../assets/models/all';
 
 import FormatTextIcon from 'mdi-react/FormatTextIcon';
 import FileImageIcon from 'mdi-react/FileImageIcon';
@@ -15,10 +15,27 @@ import VectorCircleIcon from 'mdi-react/VectorCircleIcon';
 import QrcodeIcon from 'mdi-react/QrcodeIcon';
 // import CloseCircleIcon from 'mdi-react/CloseCircleIcon';
 
+import {
+    SteperBullets,
+    Button,
+    Input
+} from '../../components';
+
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+
+import { Link, withRouter } from 'react-router-dom';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class Editor extends Component {
 
     constructor(props){
         super(props);
+
+        console.log(props);
 
 
         //COMO USAR?????????????????????????????????
@@ -53,23 +70,46 @@ class Editor extends Component {
             "card": {width: 525, height: 300},
         };
 
+
+        this.state = {
+            canvasWidth: 525,
+            canvasHeight: 300,
+            showTextControls: false,
+            showImageControls: false,
+            showShapeControls: false,
+            showQrCodeControls: false,
+            productText: '',
+            hasBackgroundImage: false,
+
+
+            //defaults
+            useModel: true,
+            type: "card_1",
+            boardType: "sell",
+            phone: "(19) 4321-1234",
+            name: "Imobiliaria",
+            email: "imob@teste.com",
+            site: "imob.com",
+            creci: "4321",
+        };
+
         let canvasWidth;
         let canvasHeight;
         let productText;
 
-        if(this.props.type === 'board_1'){
+        if(this.state.type === 'board_1'){
             canvasWidth = this.sizes.board.width;
             canvasHeight = this.sizes.board.height;
             productText = "Placa";
-        }else if(this.props.type === 'banner_1' || this.props.type === 'banner_2' || this.props.type === 'banner_3'){
+        }else if(this.state.type === 'banner_1' || this.state.type === 'banner_2' || this.state.type === 'banner_3'){
             canvasWidth = this.sizes.banner.width;
             canvasHeight = this.sizes.banner.height;
             productText = "Banner";
-        }else if(this.props.type === 'ribbon_1' || this.props.type === 'ribbon_2' || this.props.type === 'ribbon_3'){
+        }else if(this.state.type === 'ribbon_1' || this.state.type === 'ribbon_2' || this.state.type === 'ribbon_3'){
             canvasWidth = this.sizes.ribbon.width;
             canvasHeight = this.sizes.ribbon.height;
             productText = "Faixa";
-        }else if(this.props.type === 'card_1' || this.props.type === 'card_2' || this.props.type === 'card_3'){
+        }else if(this.state.type === 'card_1' || this.state.type === 'card_2' || this.state.type === 'card_3'){
             canvasWidth = this.sizes.card.width;
             canvasHeight = this.sizes.card.height;
             productText = "Cartão";
@@ -78,16 +118,11 @@ class Editor extends Component {
             canvasHeight = 300;
         }
 
-
-        this.state = {
+        this.setState({
             canvasWidth: canvasWidth,
             canvasHeight: canvasHeight,
-            showTextControls: false,
-            showImageControls: false,
-            showShapeControls: false,
-            showQrCodeControls: false,
             productText: productText
-        };
+        });
 
         this.canvas = null;
 
@@ -100,32 +135,32 @@ class Editor extends Component {
         });
 
         //load from json if user want a existent model
-        if(this.props.useModel){
-            let selected_json = models.boardrent;
-            if(this.props.type === 'board_1'){
-                if(this.props.boardType == 'rent'){
+        if(this.state.useModel){
+            let selected_json = models.boardrent_1;
+            if(this.state.type === 'board_1'){
+                if(this.state.boardType == 'rent'){
                     selected_json = models.boardrent_1;
                 }else{
                     selected_json = models.boardsell_1;
                 }
-            }else if(this.props.type === 'banner_1'){
+            }else if(this.state.type === 'banner_1'){
                 selected_json = models.banner_1;
-            }else if(this.props.type === 'banner_2'){
+            }else if(this.state.type === 'banner_2'){
                 selected_json = models.banner_2;
-            }else if(this.props.type === 'banner_3'){
+            }else if(this.state.type === 'banner_3'){
                 selected_json = models.banner_3;
             }
-            else if(this.props.type === 'ribbon_1'){
+            else if(this.state.type === 'ribbon_1'){
                 selected_json = models.ribbon_1;
-            }else if(this.props.type === 'ribbon_2'){
+            }else if(this.state.type === 'ribbon_2'){
                 selected_json = models.ribbon_2;
-            }else if(this.props.type === 'ribbon_3'){
+            }else if(this.state.type === 'ribbon_3'){
                 selected_json = models.ribbon_3;
-            }else if(this.props.type === 'card_1'){
+            }else if(this.state.type === 'card_1'){
                 selected_json = models.card_1;
-            }else if(this.props.type === 'card_2'){
+            }else if(this.state.type === 'card_2'){
                 selected_json = models.card_2;
-            }else if(this.props.type === 'card_3'){
+            }else if(this.state.type === 'card_3'){
                 selected_json = models.card_3;
             }
 
@@ -133,13 +168,13 @@ class Editor extends Component {
 
             for(let i = 0; i < selected_json.objects.length; i++){
                 if(selected_json.objects[i].id == "phone"){
-                    selected_json.objects[i].text = this.props.phone || '';
+                    selected_json.objects[i].text = this.state.phone || '';
                 }else if(selected_json.objects[i].id == "email"){
-                    selected_json.objects[i].text = this.props.email || '';
+                    selected_json.objects[i].text = this.state.email || '';
                 }else if(selected_json.objects[i].id == "creci"){
-                    selected_json.objects[i].text = this.props.creci || '';
+                    selected_json.objects[i].text = this.state.creci || '';
                 }else if(selected_json.objects[i].id == "site"){
-                    selected_json.objects[i].text = this.props.site || '';
+                    selected_json.objects[i].text = this.state.site || '';
                 }else if(selected_json.objects[i].id == "image"){
                     //TODO;
                 }
@@ -156,8 +191,8 @@ class Editor extends Component {
             //         console.log(canvasObjects[i].id);
             //         if(canvasObjects[i].id == "empresa"){
             //             console.log("set empresa");
-            //             canvasObjects[i].set('Text', this.props.name);
-            //             canvasObjects[i].text = this.props.name;
+            //             canvasObjects[i].set('Text', this.state.name);
+            //             canvasObjects[i].text = this.state.name;
             //             //canvasObjects[i].setText('Selectedoooooooo');
             //         }
             //     }
@@ -308,6 +343,10 @@ class Editor extends Component {
                         format: 'png',
                         quality: 1
                     });
+
+                    this.setState({
+                        hasBackgroundImage: true
+                    })
                 });
             };
 
@@ -592,8 +631,16 @@ class Editor extends Component {
                     </div>
                     <div className="control-item">
                         <button id="background-image" ref="backgroundImage" size="10" onClick={(e) => {
-                            this.refs.backgroundUploader.click();
-                        }}>Imagem de fundo</button>
+                            if(!this.state.hasBackgroundImage){
+                                this.refs.backgroundUploader.click();
+                            }else{
+                                this.canvas.backgroundImage = 0;
+                                this.canvas.renderAll();
+                                this.setState({
+                                    hasBackgroundImage: false
+                                });
+                            }
+                        }}>{!this.state.hasBackgroundImage ? 'Imagem de fundo' : 'Remover imagem de fundo'}</button>
                     </div>
                 </div>
             );
@@ -607,8 +654,19 @@ class Editor extends Component {
             'canvas-editor': true
         });
 
+        const stepClass = classNames({
+            'step': true,
+            'container-editor': true,
+            'active': this.props.active
+        });
+
+        let bullets = [];
+        for (let i = 0; i < this.props.bulletCount; i++) {
+            bullets.push(<SteperBullets key={i} active={this.props.index == i} />);
+        }
+
         return (
-            <div className="container-editor">
+            <div className={stepClass}>
                 <div className="topbar">
                     <p style={{flex: 1, fontSize: '14px'}}>Produto: <b style={{flex: 1, fontSize: '18px'}}>{this.state.productText}</b></p>
                     <div className="controls">
@@ -634,10 +692,29 @@ class Editor extends Component {
                 <input type="file" id="file" ref="fileUploader" style={{display: 'none'}}/>
                 <input type="file" id="fileChange" ref="fileChange" style={{display: 'none'}}/>
                 <input type="file" id="backgroundUploader" ref="backgroundUploader" style={{display: 'none'}}/>
+
+                <div>
+                    <Button
+                        text='Anterior'
+                        secondary
+                        onClick={() => {
+                            this.props.setStep(3)
+                        }}
+                    />
+
+                    <Button
+                        text='Próximo'
+                        isCta
+                        onClick={() => {
+                            //this.props.setStep(5)
+                            this.props.history.push("/orders");
+                        }}
+                    />
+                </div>
             </div>
         );
 
     }
 }
 
-export default Editor;
+export default withRouter(connect(mapStateToProps)(Editor));

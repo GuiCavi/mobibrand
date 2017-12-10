@@ -24,7 +24,7 @@ class Steper extends Component {
     render() {
         const steperClass = classNames({
             'steper': true
-        })
+        });
 
         let steps = [];
         let Step = null;

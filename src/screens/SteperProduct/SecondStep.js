@@ -8,12 +8,60 @@ import {
     Input
 } from '../../components';
 
+
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+
+import { Link, withRouter } from 'react-router-dom';
+
+import stylesInput from '../../components/Input/styles.css';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class SecondStep extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(e){
+        const {dispatch} = this.props;
+
+        let email = this.refs.email.value;
+        let phone = this.refs.phone.value;
+        let site = this.refs.site.value;
+        let creci = this.refs.creci.value;
+
+        // if(!email || !phone || !site || !creci){
+        if(false){
+            alert("Preencha os dados");
+        }else{
+            dispatch(actionCreators.step2(email, phone, site, creci));
+            this.props.setStep(2);
+        }
+
+        // dispatch(actionCreators.name(this.refs.inputName.value));
+    }
+
     render() {
         const stepClass = classNames({
             'step': true,
             'active': this.props.active
         });
+
+        const wrapperClass = classNames({
+            'input-wrapper': true,
+            'input-login-wrapper': this.props.loginWrapper,
+            'input-shipping-wrapper': this.props.shippingWrapper
+        })
+
+        const inputClass = classNames({
+            'input': true
+        })
 
         let bullets = [];
         for (let i = 0; i < this.props.bulletCount; i++) {  
@@ -37,10 +85,18 @@ class SecondStep extends Component {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', flex: 1, alignSelf: 'stretch' }}>
-                    <Input placeholder="Nome da imobiliária" />
-                    <Input placeholder="Telefone" />
-                    <Input placeholder="Site da imobiliária" />
-                    <Input placeholder="CRECI" />                    
+                    <div className={wrapperClass}>
+                        <input ref="email" type={this.props.type || 'text'} className={inputClass} placeholder={"Email"} />
+                    </div>
+                    <div className={wrapperClass}>
+                        <input ref="phone" type={this.props.type || 'text'} className={inputClass} placeholder={"Telefone"} />
+                    </div>
+                    <div className={wrapperClass}>
+                        <input ref="site" type={this.props.type || 'text'} className={inputClass} placeholder={"Site"} />
+                    </div>
+                    <div className={wrapperClass}>
+                        <input ref="creci" type={this.props.type || 'text'} className={inputClass} placeholder={"CRECI"} />
+                    </div>
                 </div>
 
                 <div>
@@ -48,16 +104,14 @@ class SecondStep extends Component {
                         text='Anterior'
                         secondary
                         onClick={() => {
-                            this.props.setStep(1)
+                            this.props.setStep(0);
                         }}
                     />
 
                     <Button
                         text='Próximo'
                         isCta
-                        onClick={() => {
-                            this.props.setStep(2)
-                        }}
+                        onClick={this.onClick}
                     />
                 </div>
             </div>
@@ -65,4 +119,4 @@ class SecondStep extends Component {
     }
 }
 
-export default SecondStep;
+export default withRouter(connect(mapStateToProps)(SecondStep));

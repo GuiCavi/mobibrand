@@ -28,6 +28,10 @@ class OrderStatusScreen extends Component {
                     <Button
                         text='Histórico de pedidos'
                         isCta
+                        onClick={() => {
+                            //this.props.setStep(5)
+                            this.props.history.push("/shipping");
+                        }}
                     />
                 </div>
               </div>

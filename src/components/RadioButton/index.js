@@ -9,7 +9,7 @@ class RadioButton extends Component {
         const radioClass = classNames({
             'radio-button': true,
             'active': this.props.active
-        })
+        });
 
         return (
             <div className={radioClass}></div>

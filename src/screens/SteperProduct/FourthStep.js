@@ -8,6 +8,16 @@ import {
     ThemeList
 } from '../../components';
 
+
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+
+import { Link, withRouter } from 'react-router-dom';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class FourthStep extends Component {
     render() {
         const stepClass = classNames({
@@ -24,7 +34,7 @@ class FourthStep extends Component {
             <div className={stepClass} style={{ overflow: 'auto' }}>
                 <div style={{ textAlign: 'center' }}>
                     <div>
-                        <div className='step-title'>Segundo Passo</div>
+                        <div className='step-title'>Quarto Passo</div>
                     </div>
 
                     <div className="step-bullets">
@@ -32,7 +42,7 @@ class FourthStep extends Component {
                     </div>
 
                     <div className="step-help-text">
-                        Forneça os <b>dados</b> da sua empresa imobiliária
+                        Selecione um <b>modelo</b>
                     </div>
                 </div>
 
@@ -48,13 +58,16 @@ class FourthStep extends Component {
                         text='Anterior'
                         secondary
                         onClick={() => {
-                            this.props.setStep(3)
+                            this.props.setStep(2)
                         }}
                     />
 
                     <Button
                         text='Próximo'
                         isCta
+                        onClick={() => {
+                            this.props.setStep(4)
+                        }}
                     />
                 </div>
             </div>

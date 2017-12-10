@@ -18,7 +18,7 @@ class Input extends Component {
 
         return (
             <div className={wrapperClass}>
-                <input type={this.props.type || 'text'} className={inputClass} placeholder={this.props.placeholder} />
+                <input ref={this.props.ref} type={this.props.type || 'text'} className={inputClass} placeholder={this.props.placeholder} />
             </div>
         );
     }

@@ -9,6 +9,16 @@ import {
     ColorPicker
 } from '../../components';
 
+
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+
+import { Link, withRouter } from 'react-router-dom';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class ThirdStep extends Component {
     render() {
         const stepClass = classNames({
@@ -25,7 +35,7 @@ class ThirdStep extends Component {
             <div className={stepClass} style={{ backgroundColor: 'transparent' }}>
                 <div style={{ textAlign: 'center' }}>
                     <div>
-                        <div className='step-title'>Segundo Passo</div>
+                        <div className='step-title'>Terceiro Passo</div>
                     </div>
 
                     <div className="step-bullets">
@@ -33,7 +43,7 @@ class ThirdStep extends Component {
                     </div>
 
                     <div className="step-help-text">
-                        Forneça os <b>dados</b> da sua empresa imobiliária
+                        Forneça o <b>logo</b> e as <b>cores</b> da imobiliária
                     </div>
                 </div>
 
@@ -54,7 +64,7 @@ class ThirdStep extends Component {
                         text='Anterior'
                         secondary
                         onClick={() => {
-                            this.props.setStep(2)
+                            this.props.setStep(1)
                         }}
                     />
 

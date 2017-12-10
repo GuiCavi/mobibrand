@@ -14,10 +14,10 @@ class ThemeList extends Component {
             'theme-list': true
         });
 
-        const themes = this.props.themes.map((theme) => {
-            const items = theme.items.map((item) => {
+        const themes = this.props.themes.map((theme, index) => {
+            const items = theme.items.map((item, index) => {
                 return (
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: 'center' }} key={index}>
                         <div>{item.name}</div>
                         <img src={require(`../../assets/img/themes/${item.theme}/${item.filename}`)} style={{ width: '70%', border: '1px solid #95989a', marginTop: 10 }} />
                     </div>
@@ -26,6 +26,7 @@ class ThemeList extends Component {
 
             return (
                 <div
+                    key={index}
                     className={`theme ${theme.active ? 'active' : ''}`}
                     onClick={() => {
                         if (this.props.selectTheme)

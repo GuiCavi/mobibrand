@@ -37,6 +37,10 @@ class LoginScreen extends Component {
                           text='Entrar'
                           isCta
                           loginButton
+                          onClick={() => {
+                              //this.props.setStep(5)
+                              this.props.history.push("/payment");
+                          }}
                       /> 
                   </div>
 
@@ -63,6 +67,10 @@ class LoginScreen extends Component {
                           text='Registrar'
                           isCta
                           loginButton
+                          onClick={() => {
+                              //this.props.setStep(5)
+                              this.props.history.push("/payment");
+                          }}
                       /> 
                   </div>
                 </div>

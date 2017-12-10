@@ -8,7 +8,31 @@ import {
     Button
 } from '../../components';
 
+
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+
+import { Link, withRouter } from 'react-router-dom';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class FirstStep extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(e){
+        // const {dispatch} = this.props;
+
+        // dispatch(actionCreators.name(this.refs.inputName.value));
+        this.props.setStep(1)
+    }
+
     render() {
         const stepClass = classNames({
             'step': true,
@@ -16,13 +40,14 @@ class FirstStep extends Component {
         });
 
         let bullets = [];
-        for (let i = 0; i < this.props.bulletCount; i++) {  
+        for (let i = 0; i < this.props.bulletCount; i++) {
             bullets.push(<SteperBullets key={i} active={this.props.index == i} />);
         }
 
-        let selectableTemplates = this.props.selectableTemplates.map((selectableTemplate) => {
+        let selectableTemplates = this.props.selectableTemplates.map((selectableTemplate, index) => {
             return (
                 <SelectableTemplates
+                    key={index}
                     name={selectableTemplate.name}
                     type={selectableTemplate.type}
                     size={selectableTemplate.size}
@@ -30,7 +55,7 @@ class FirstStep extends Component {
                     selectTemplate={this.props.selectTemplate}
                 />
             );
-        })
+        });
 
         return (
             <div className={stepClass} style={{ backgroundColor: 'transparent' }}>
@@ -61,9 +86,7 @@ class FirstStep extends Component {
                     <Button
                         text='Próximo'
                         isCta
-                        onClick={() => {
-                            this.props.setStep(1)
-                        }}
+                        onClick={this.onClick}
                     />
                 </div>
             </div>
@@ -71,4 +94,4 @@ class FirstStep extends Component {
     }
 }
 
-export default FirstStep;
+export default withRouter(connect(mapStateToProps)(FirstStep));
