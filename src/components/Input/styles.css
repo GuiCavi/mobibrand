@@ -2,6 +2,11 @@
     width: 35%;
 }
 
+.input-login-wrapper{
+  width:100%;
+  margin:7px 0;
+}
+
 .input {
     border: 0;
     border: 1px solid rgba(148, 150, 152, 0.507);
