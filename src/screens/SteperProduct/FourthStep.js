@@ -4,7 +4,8 @@ import classNames from 'classnames';
 
 import {
     SteperBullets,
-    Button
+    Button,
+    ThemeList
 } from '../../components';
 
 class FourthStep extends Component {
@@ -20,7 +21,7 @@ class FourthStep extends Component {
         }
 
         return (
-            <div className={stepClass} style={{ backgroundColor: 'transparent' }}>
+            <div className={stepClass} style={{ overflow: 'auto' }}>
                 <div style={{ textAlign: 'center' }}>
                     <div>
                         <div className='step-title'>Segundo Passo</div>
@@ -35,11 +36,14 @@ class FourthStep extends Component {
                     </div>
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'space-between', flex: 1, alignSelf: 'stretch', marginLeft: -40, marginRight: -40 }}>
-                    
+                <div style={{ display: 'flex', flex: 1, alignSelf: 'stretch' }}>
+                    <ThemeList
+                        themes={this.props.themeList}
+                        selectTheme={this.props.selectTheme}
+                    />
                 </div>
 
-                <div>
+                <div style={{ flex: 0 }}>
                     <Button
                         text='Anterior'
                         secondary

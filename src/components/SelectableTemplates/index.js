@@ -34,12 +34,18 @@ class SelectableTemplates extends Component {
 
         return (
             <div className={wrapperClass}>
-                <div className={templatesClass} onClick={() => this.props.selectTemplate(this.props.type)}>
+                <div className={templatesClass} onClick={() => {
+                    if (this.props.selectTemplate)
+                        this.props.selectTemplate(this.props.type);
+                }}>
                     <h3>{this.props.name}</h3>
                     <div className={itemClass}>
                         {this.props.size}
                     </div>
-                    <RadioButton active={this.props.active} />
+                    {
+                        this.props.selectTemplate &&
+                        <RadioButton active={this.props.active} />
+                    }
                 </div>
             </div>
         );

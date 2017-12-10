@@ -1,0 +1,24 @@
+.theme-list {
+    flex: 1;
+    overflow: auto;
+}
+
+.theme-list .theme {
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.theme-list .theme:hover,
+.theme-list .theme.active {
+    border-color: #90de9f;
+}
+
+.theme-list .theme-name {
+    font-size: 94px;
+    font-weight: bold;
+    color: #90de9f;
+    margin-left: 10px;
+}
