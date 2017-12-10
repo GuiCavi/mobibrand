@@ -7,7 +7,7 @@ https://mobit-dev.herokuapp.com/
 
 ### Clone
 ```javascript
-git clone https://github.com/GuiCavi/mobibrand
+git clone https://github.com/renanpupin/mobibrand
 ```
 
 ### Install dependencies

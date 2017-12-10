@@ -57,19 +57,19 @@ class Editor extends Component {
         let canvasHeight;
         let productText;
 
-        if(this.props.type === 'board'){
+        if(this.props.type === 'board_1'){
             canvasWidth = this.sizes.board.width;
             canvasHeight = this.sizes.board.height;
             productText = "Placa";
-        }else if(this.props.type === 'banner'){
+        }else if(this.props.type === 'banner_1' || this.props.type === 'banner_2' || this.props.type === 'banner_3'){
             canvasWidth = this.sizes.banner.width;
             canvasHeight = this.sizes.banner.height;
             productText = "Banner";
-        }else if(this.props.type === 'ribbon'){
+        }else if(this.props.type === 'ribbon_1' || this.props.type === 'ribbon_2' || this.props.type === 'ribbon_3'){
             canvasWidth = this.sizes.ribbon.width;
             canvasHeight = this.sizes.ribbon.height;
             productText = "Faixa";
-        }else if(this.props.type === 'card'){
+        }else if(this.props.type === 'card_1' || this.props.type === 'card_2' || this.props.type === 'card_3'){
             canvasWidth = this.sizes.card.width;
             canvasHeight = this.sizes.card.height;
             productText = "Cartão";
@@ -102,18 +102,31 @@ class Editor extends Component {
         //load from json if user want a existent model
         if(this.props.useModel){
             let selected_json = models.boardrent;
-            if(this.props.type === 'board'){
+            if(this.props.type === 'board_1'){
                 if(this.props.boardType == 'rent'){
-                    selected_json = models.boardrent;
+                    selected_json = models.boardrent_1;
                 }else{
-                    selected_json = models.boardsell;
+                    selected_json = models.boardsell_1;
                 }
-            }else if(this.props.type === 'banner'){
-                selected_json = models.banner;
-            }else if(this.props.type === 'ribbon'){
-                selected_json = models.ribbon;
-            }else if(this.props.type === 'card'){
-                selected_json = models.card;
+            }else if(this.props.type === 'banner_1'){
+                selected_json = models.banner_1;
+            }else if(this.props.type === 'banner_2'){
+                selected_json = models.banner_2;
+            }else if(this.props.type === 'banner_3'){
+                selected_json = models.banner_3;
+            }
+            else if(this.props.type === 'ribbon_1'){
+                selected_json = models.ribbon_1;
+            }else if(this.props.type === 'ribbon_2'){
+                selected_json = models.ribbon_2;
+            }else if(this.props.type === 'ribbon_3'){
+                selected_json = models.ribbon_3;
+            }else if(this.props.type === 'card_1'){
+                selected_json = models.card_1;
+            }else if(this.props.type === 'card_2'){
+                selected_json = models.card_2;
+            }else if(this.props.type === 'card_3'){
+                selected_json = models.card_3;
             }
 
             console.log(selected_json);
@@ -277,6 +290,32 @@ class Editor extends Component {
             reader.readAsDataURL(file);
         });
 
+        document.getElementById('backgroundUploader').addEventListener("change", (e) => {
+            let file = e.target.files[0];
+            let reader = new FileReader();
+
+            reader.onload = (f) => {
+                let data = f.target.result;
+                fabric.Image.fromURL(data, (img) => {
+                    let activeImage = this.canvas.getActiveObject();
+                    console.log(activeImage);
+                    this.canvas.setBackgroundImage(img, this.canvas.renderAll.bind(this.canvas), {
+                        originX: 'left',
+                        originY: 'top',
+                        scaleX: this.canvas.width / img.width,
+                        scaleY: this.canvas.height / img.height
+                    });
+                    this.canvas.renderAll();
+                    let dataURL = this.canvas.toDataURL({
+                        format: 'png',
+                        quality: 1
+                    });
+                });
+            };
+
+            reader.readAsDataURL(file);
+        });
+
         //-------------------------------
         // Keyboard events
         //-------------------------------
@@ -297,6 +336,13 @@ class Editor extends Component {
             } else if ( key == 43 || key == 8 ) {
                 console.log("Delete or backspace Pressed !");
                 this.deleteObject();
+            } else if(key == 84 && ctrl ){
+                let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.canvas.toJSON(['id']), null, 4));
+                let dlAnchorElem = document.createElement('a');
+                dlAnchorElem.setAttribute("href",     dataStr     );
+                dlAnchorElem.setAttribute("download", "uhu.json");
+                dlAnchorElem.click();
+                dlAnchorElem.remove();
             }
         }, false);
 
@@ -540,11 +586,17 @@ class Editor extends Component {
             return (
                 <div id="backgroundControls" className="background-controls" ref="backgroundControls">
                     <div className="control-item">
-                        <label htmlFor="background-color" className="label-control">Cor de fundo:</label>
-                        <input type="color" id="background-color" ref="backgroundColor" size="10" onChange={(e) => {
-                            this.canvas.backgroundColor = this.refs.backgroundColor.value;
+                        <label htmlFor="background-image" className="label-control">Cor de fundo:</label>
+                        <input type="color" id="background-image" ref="backgroundImage" size="10" onChange={(e) => {
+                            this.canvas.backgroundColor = this.refs.backgroundImage.value;
                             this.canvas.renderAll();
                         }}/>
+                    </div>
+                    <div className="control-item">
+                        <button id="background-color" ref="backgroundColor" size="10" onClick={(e) => {
+                            this.refs.backgroundUploader.click();
+                        }}>Imagem de fundo</button>
+                        <input type="file" id="backgroundUploader" ref="backgroundUploader" style={{display: 'none'}}/>
                     </div>
                 </div>
             );
