@@ -297,8 +297,6 @@ class Editor extends Component {
             reader.onload = (f) => {
                 let data = f.target.result;
                 fabric.Image.fromURL(data, (img) => {
-                    let activeImage = this.canvas.getActiveObject();
-                    console.log(activeImage);
                     this.canvas.setBackgroundImage(img, this.canvas.renderAll.bind(this.canvas), {
                         originX: 'left',
                         originY: 'top',
@@ -586,17 +584,16 @@ class Editor extends Component {
             return (
                 <div id="backgroundControls" className="background-controls" ref="backgroundControls">
                     <div className="control-item">
-                        <label htmlFor="background-image" className="label-control">Cor de fundo:</label>
-                        <input type="color" id="background-image" ref="backgroundImage" size="10" onChange={(e) => {
-                            this.canvas.backgroundColor = this.refs.backgroundImage.value;
+                        <label htmlFor="background-color" className="label-control">Cor de fundo:</label>
+                        <input type="color" id="background-color" ref="backgroundColor" size="10" onChange={(e) => {
+                            this.canvas.backgroundColor = this.refs.backgroundColor.value;
                             this.canvas.renderAll();
                         }}/>
                     </div>
                     <div className="control-item">
-                        <button id="background-color" ref="backgroundColor" size="10" onClick={(e) => {
+                        <button id="background-image" ref="backgroundImage" size="10" onClick={(e) => {
                             this.refs.backgroundUploader.click();
                         }}>Imagem de fundo</button>
-                        <input type="file" id="backgroundUploader" ref="backgroundUploader" style={{display: 'none'}}/>
                     </div>
                 </div>
             );
@@ -636,6 +633,7 @@ class Editor extends Component {
 
                 <input type="file" id="file" ref="fileUploader" style={{display: 'none'}}/>
                 <input type="file" id="fileChange" ref="fileChange" style={{display: 'none'}}/>
+                <input type="file" id="backgroundUploader" ref="backgroundUploader" style={{display: 'none'}}/>
             </div>
         );
 
