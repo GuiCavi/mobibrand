@@ -5,7 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import {
     HomeScreen,
     LoginScreen,
-    ProductWizardScreen
+    ProductWizardScreen,
+    OrdersScreen
 } from '../screens';
 
 class AppContainer extends Component {
@@ -15,6 +16,7 @@ class AppContainer extends Component {
             <Route exact path='/' component={HomeScreen}/>
             <Route exact path='/login' component={LoginScreen}/>
             <Route exact path='/product/register' component={ProductWizardScreen}/>
+            <Route exact path='/orders' component={OrdersScreen}/>
         </Switch>
       );
     }
