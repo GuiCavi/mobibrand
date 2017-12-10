@@ -4,6 +4,7 @@ import ProductWizardScreen from './ProductWizardScreen';
 import OrdersScreen from './OrdersScreen';
 import ShippingDataScreen from './ShippingDataScreen';
 import ConclusionScreen from './ConclusionScreen';
+import PaymentDataScreen from './PaymentDataScreen';
 
 export {
     HomeScreen,
@@ -11,5 +12,6 @@ export {
     ProductWizardScreen,
     OrdersScreen,
     ShippingDataScreen,
-    ConclusionScreen
+    ConclusionScreen,
+    PaymentDataScreen
 }
