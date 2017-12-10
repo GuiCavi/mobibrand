@@ -7,13 +7,13 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 class ColorPicker extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             isOpen: false,
-            color: '#fff',
-        }
+            color: props.defaultColor || '#fff',
+        };
 
         this._handleClick = this._handleClick.bind(this);
         this._handleClose = this._handleClose.bind(this);
@@ -70,7 +70,7 @@ class ColorPicker extends Component {
                 }
                 <div className={wrapperClass} onClick={this._handleClick}>
                     <div className={colorpickerClass}>
-                        <span className={colorClass} style={{ backgroundColor: this.state.color.hex }} />
+                        <span className={colorClass} style={{ backgroundColor: this.state.color}} />
                     </div>
                     <span style={{ marginTop: 5, fontSize: 14, display: 'inline-block' }}>{this.props.name || 'Color'}</span>
                 </div>

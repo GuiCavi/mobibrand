@@ -15,7 +15,15 @@ import {connect} from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 const mapStateToProps = (store) => ({
-    name: store.stepReducer.name
+    name: store.stepReducer.name,
+    phone: store.stepReducer.phone,
+    email: store.stepReducer.email,
+    site: store.stepReducer.site,
+    creci: store.stepReducer.creci,
+    logo: store.stepReducer.logo,
+    primaryColor: store.stepReducer.primaryColor,
+    secundaryColor: store.stepReducer.secundaryColor,
+    model: store.stepReducer.model,
 });
 
 class FourthStep extends Component {

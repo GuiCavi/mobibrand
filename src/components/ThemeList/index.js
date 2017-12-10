@@ -27,7 +27,7 @@ class ThemeList extends Component {
             return (
                 <div
                     key={index}
-                    className={`theme ${theme.active ? 'active' : ''}`}
+                    className={`theme ${index == 0 ? 'active' : ''}`}
                     onClick={() => {
                         if (this.props.selectTheme)
                             this.props.selectTheme(theme.name);

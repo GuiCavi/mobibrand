@@ -19,7 +19,7 @@ class SelectableTemplates extends Component {
 
         const templatesClass = classNames({
             'selectable-templates': true,
-            'active': this.props.active
+            'active': this.props.active || this.props.type == "card"
         });
 
         const itemClass = classNames({
@@ -30,7 +30,7 @@ class SelectableTemplates extends Component {
             'board': this.props.type == 'board',
             // 'rent-board': this.props.type == 'rent-board',
             // 'sale-board': this.props.type == 'sale-board',
-        })
+        });
 
         return (
             <div className={wrapperClass}>
@@ -44,7 +44,7 @@ class SelectableTemplates extends Component {
                     </div>
                     {
                         this.props.selectTemplate &&
-                        <RadioButton active={this.props.active} />
+                        <RadioButton active={this.props.active || this.props.type == "card"} />
                     }
                 </div>
             </div>

@@ -48,14 +48,17 @@ class ThirdStep extends Component {
                 </div>
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', flex: 1, alignSelf: 'stretch' }}>
-                    <div>
+                    <div style={{textAlign: 'center'}}>
+                        <div>
+                            <img src="/images/logo.png"/>
+                        </div>
                         <input type='file' id="brand-logo" onChange={(e) => this.props.selectFile(e.target.files[0])} />
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                        <ColorPicker name="Cor primária" handleChangeColor={(color) => this.props.selectColor(color, true)} />
+                        <ColorPicker name="Cor primária" defaultColor={"#333f48"} handleChangeColor={(color) => this.props.selectColor(color, true)} />
 
-                        <ColorPicker name="Cor secundária" handleChangeColor={(color) => this.props.selectColor(color, false)} />
+                        <ColorPicker name="Cor secundária" defaultColor={"#00b1a5"} handleChangeColor={(color) => this.props.selectColor(color, false)} />
                     </div>
                 </div>
 

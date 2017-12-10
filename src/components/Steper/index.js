@@ -4,21 +4,33 @@ import classNames from 'classnames';
 
 import styles from './styles.css';
 
+import {actionCreators} from "../../reducers/step";
+import {connect} from 'react-redux';
+import { Link, withRouter } from 'react-router-dom';
+
+const mapStateToProps = (store) => ({
+    name: store.stepReducer.name
+});
+
 class Steper extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             currentStep: 0
-        }
+        };
 
         this._setStep = this._setStep.bind(this);
     }
 
     _setStep(step) {
+        const {dispatch} = this.props;
+
         this.setState({
             currentStep: step
-        })
+        });
+
+        dispatch(actionCreators.changeStep(step));
     }
 
     render() {
@@ -53,4 +65,4 @@ class Steper extends Component {
     }
 }
 
-export default Steper;
+export default withRouter(connect(mapStateToProps)(Steper));

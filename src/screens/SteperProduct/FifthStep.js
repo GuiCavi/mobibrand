@@ -27,7 +27,16 @@ import {connect} from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 
 const mapStateToProps = (store) => ({
-    name: store.stepReducer.name
+    step: store.stepReducer.step,
+    name: store.stepReducer.name,
+    phone: store.stepReducer.phone,
+    email: store.stepReducer.email,
+    site: store.stepReducer.site,
+    creci: store.stepReducer.creci,
+    logo: store.stepReducer.logo,
+    primaryColor: store.stepReducer.primaryColor,
+    secundaryColor: store.stepReducer.secundaryColor,
+    model: store.stepReducer.model,
 });
 
 class Editor extends Component {
@@ -55,9 +64,6 @@ class Editor extends Component {
         //site
         //image
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
 
         this.sizes = {
             // "board": {
@@ -126,9 +132,17 @@ class Editor extends Component {
 
         this.canvas = null;
 
+        this.start = this.start.bind(this);
+
     }
 
-    componentDidMount(){
+    componentDidUpdate(prevProps, prevState){
+        if(this.props.step == 4 && prevProps.step == 3){
+            this.start();
+        }
+    }
+
+    start(){
         this.canvas = new window.fabric.Canvas('canvasEditor', {
             width: this.state.canvasWidth,
             height: this.state.canvasHeight
@@ -167,14 +181,16 @@ class Editor extends Component {
             console.log(selected_json);
 
             for(let i = 0; i < selected_json.objects.length; i++){
-                if(selected_json.objects[i].id == "phone"){
-                    selected_json.objects[i].text = this.state.phone || '';
+                console.log(selected_json.objects[i].id);
+                if(selected_json.objects[i].id == "phone" || selected_json.objects[i].id == "telefone"){
+                    // alert(this.props.phone);
+                    selected_json.objects[i].text = this.props.phone || '';
                 }else if(selected_json.objects[i].id == "email"){
-                    selected_json.objects[i].text = this.state.email || '';
+                    selected_json.objects[i].text = this.props.email || '';
                 }else if(selected_json.objects[i].id == "creci"){
-                    selected_json.objects[i].text = this.state.creci || '';
+                    selected_json.objects[i].text = this.props.creci || '';
                 }else if(selected_json.objects[i].id == "site"){
-                    selected_json.objects[i].text = this.state.site || '';
+                    selected_json.objects[i].text = this.props.site || '';
                 }else if(selected_json.objects[i].id == "image"){
                     //TODO;
                 }
@@ -203,7 +219,7 @@ class Editor extends Component {
 
         this.canvas.on('object:selected', (e) => {
             // console.log(this.canvas.getActiveObject());
-            console.log(this.canvas.getActiveObject().get('type'));
+            // console.log(this.canvas.getActiveObject().get('type'));
 
             this.canvas.getActiveObject().bringToFront();
 
@@ -215,16 +231,18 @@ class Editor extends Component {
                 showQrCodeControls: false
             });
 
-            if (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text" || this.canvas.getActiveObject().get('type') === "i-text") {
+            // console.log(this.canvas);
+
+            if (this.canvas.getActiveObject() && (this.canvas.getActiveObject().get('type') === "textbox" || this.canvas.getActiveObject().get('type') === "text" || this.canvas.getActiveObject().get('type') === "i-text")) {
                 //this.refs.textControls.hidden = false;
                 this.setState({
                     showTextControls: true
                 });
-            }else if (this.canvas.getActiveObject().get('type') === "image") {
+            }else if (this.canvas.getActiveObject() && this.canvas.getActiveObject().get('type') === "image") {
                 this.setState({
                     showImageControls: true
                 });
-            }else if (this.canvas.getActiveObject().get('type') === "rect" || this.canvas.getActiveObject().get('type') === "circle") {
+            }else if (this.canvas.getActiveObject() && (this.canvas.getActiveObject().get('type') === "rect" || this.canvas.getActiveObject().get('type') === "circle")) {
                 this.setState({
                     showShapeControls: true
                 });
@@ -394,7 +412,9 @@ class Editor extends Component {
             this.canvas.discardActiveObject();
         } else{
             if (this.canvas.getActiveObject() != null){
-                this.canvas.remove(this.canvas.getActiveObject());
+                if(!this.canvas.getActiveObject().isEditing){
+                    this.canvas.remove(this.canvas.getActiveObject());
+                }
             }
         }
 
@@ -624,7 +644,7 @@ class Editor extends Component {
                 <div id="backgroundControls" className="background-controls" ref="backgroundControls">
                     <div className="control-item">
                         <label htmlFor="background-color" className="label-control">Cor de fundo:</label>
-                        <input type="color" id="background-color" ref="backgroundColor" size="10" onChange={(e) => {
+                        <input type="color" id="background-color" defaultValue="#ffffff" ref="backgroundColor" size="10" onChange={(e) => {
                             this.canvas.backgroundColor = this.refs.backgroundColor.value;
                             this.canvas.renderAll();
                         }}/>
@@ -668,7 +688,7 @@ class Editor extends Component {
         return (
             <div className={stepClass}>
                 <div className="topbar">
-                    <p style={{flex: 1, fontSize: '14px'}}>Produto: <b style={{flex: 1, fontSize: '18px'}}>{this.state.productText}</b></p>
+                    <p style={{flex: 1, fontSize: '14px'}}>Produto: <b style={{flex: 1, fontSize: '18px'}}>Cartão de visitas</b></p>
                     <div className="controls">
                         {this.renderBackgroundControls()}
                         {this.renderTextControls()}

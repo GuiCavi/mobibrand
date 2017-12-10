@@ -57,11 +57,11 @@ class SecondStep extends Component {
             'input-wrapper': true,
             'input-login-wrapper': this.props.loginWrapper,
             'input-shipping-wrapper': this.props.shippingWrapper
-        })
+        });
 
         const inputClass = classNames({
             'input': true
-        })
+        });
 
         let bullets = [];
         for (let i = 0; i < this.props.bulletCount; i++) {  
@@ -86,16 +86,20 @@ class SecondStep extends Component {
 
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', flex: 1, alignSelf: 'stretch' }}>
                     <div className={wrapperClass}>
-                        <input ref="email" type={this.props.type || 'text'} className={inputClass} placeholder={"Email"} />
+                        <label style={{display: 'block', marginBottom: '10px'}}>Email</label>
+                        <input ref="email" defaultValue={"imob@prudente.com"} type={this.props.type || 'text'} className={inputClass} placeholder={"Email"} />
                     </div>
                     <div className={wrapperClass}>
-                        <input ref="phone" type={this.props.type || 'text'} className={inputClass} placeholder={"Telefone"} />
+                        <label style={{display: 'block', marginBottom: '10px'}}>Telefone</label>
+                        <input ref="phone" defaultValue={"(18) 9181-8181"} type={this.props.type || 'text'} className={inputClass} placeholder={"Telefone"} />
                     </div>
                     <div className={wrapperClass}>
-                        <input ref="site" type={this.props.type || 'text'} className={inputClass} placeholder={"Site"} />
+                        <label style={{display: 'block', marginBottom: '10px'}}>Site</label>
+                        <input ref="site" defaultValue={"imob.com"} type={this.props.type || 'text'} className={inputClass} placeholder={"Site"} />
                     </div>
                     <div className={wrapperClass}>
-                        <input ref="creci" type={this.props.type || 'text'} className={inputClass} placeholder={"CRECI"} />
+                        <label style={{display: 'block', marginBottom: '10px'}}>Número CRECI</label>
+                        <input ref="creci" defaultValue={"51.765-F"} type={this.props.type || 'text'} className={inputClass} placeholder={"CRECI"} />
                     </div>
                 </div>
 

@@ -1,5 +1,6 @@
 // The types of actions that you can dispatch to modify the state of the store
 export const types = {
+    CHANGE_STEP: 'CHANGE_STEP',
     NAME: 'NAME',
     STEP1: 'STEP1',
     STEP2: 'STEP2',
@@ -11,6 +12,9 @@ export const types = {
 // Helper functions to dispatch actions, optionally with payloads
 export const actionCreators = {
 
+    changeStep: (step) => {
+        return {type: types.CHANGE_STEP, payload: step};
+    },
     name: (name) => {
         return {type: types.NAME, payload: name};
     },
@@ -30,6 +34,7 @@ export const actionCreators = {
 
 // Initial state of the store
 const initialState = {
+    step: null,
     name: null,
     phone: null,
     email: null,
@@ -45,6 +50,12 @@ const initialState = {
 export default function step(state = initialState, action) {
     const {type, payload} = action;
     switch (type) {
+        case types.CHANGE_STEP: {
+            return {
+                ...state,
+                step: payload
+            };
+        }
         case types.NAME: {
             return {
                 ...state,
