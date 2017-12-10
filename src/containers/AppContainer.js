@@ -6,6 +6,7 @@ import {
     HomeScreen,
     LoginScreen,
     ProductWizardScreen,
+    OrdersScreen,
     ShippingDataScreen,
     ConclusionScreen,
     OrderStatusScreen
@@ -21,6 +22,7 @@ class AppContainer extends Component {
             <Route exact path='/conclusion' component={ConclusionScreen}/>
             <Route exact path='/status' component={OrderStatusScreen}/>
             <Route exact path='/product/register' component={ProductWizardScreen}/>
+            <Route exact path='/orders' component={OrdersScreen}/>
         </Switch>
       );
     }
