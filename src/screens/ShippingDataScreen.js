@@ -40,6 +40,10 @@ class ShippingDataScreen extends Component {
                             <Button
                                 text='Próximo'
                                 isCta
+                                onClick={() => {
+                                    //this.props.setStep(5)
+                                    this.props.history.push("/conclusion");
+                                }}
                             />
                         </div>
                     </div>

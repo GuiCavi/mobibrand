@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b37906ad-2778-4318-83a7-20ab0a3d7a84" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/reducers/step.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/FifthStep.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/Editor/styles.css" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Editor/index.js" afterPath="$PROJECT_DIR$/src/components/Editor/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Input/index.js" afterPath="$PROJECT_DIR$/src/components/Input/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/InputWithText/index.js" afterPath="$PROJECT_DIR$/src/components/InputWithText/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/RadioButton/index.js" afterPath="$PROJECT_DIR$/src/components/RadioButton/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/Steper/index.js" afterPath="$PROJECT_DIR$/src/components/Steper/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/ThemeList/index.js" afterPath="$PROJECT_DIR$/src/components/ThemeList/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/LoginScreen.js" afterPath="$PROJECT_DIR$/src/screens/LoginScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/OrderStatusScreen.js" afterPath="$PROJECT_DIR$/src/screens/OrderStatusScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/OrdersScreen.js" afterPath="$PROJECT_DIR$/src/screens/OrdersScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/PaymentDataScreen.js" afterPath="$PROJECT_DIR$/src/screens/PaymentDataScreen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/SteperProduct/FirstStep.js" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/FirstStep.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/SteperProduct/FourthStep.js" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/FourthStep.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/SteperProduct/SecondStep.js" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/SecondStep.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/SteperProduct/ThirdStep.js" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/ThirdStep.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/SteperProduct/index.js" afterPath="$PROJECT_DIR$/src/screens/SteperProduct/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/screens/ShippingDataScreen.js" afterPath="$PROJECT_DIR$/src/screens/ShippingDataScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -79,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrdersScreen.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OrdersScreen.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/screens/OrdersScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
@@ -113,7 +91,17 @@
         <entry file="file://$PROJECT_DIR$/src/screens/OrderStatusScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="32" column="62" lean-forward="false" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+              <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShippingDataScreen.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/screens/ShippingDataScreen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -122,9 +110,11 @@
       <file leaf-file-name="AppContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/AppContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -205,9 +195,10 @@
         <option value="$PROJECT_DIR$/src/screens/SteperProduct/FifthStep.js" />
         <option value="$PROJECT_DIR$/src/containers/AppContainer.js" />
         <option value="$PROJECT_DIR$/src/screens/PaymentDataScreen.js" />
-        <option value="$PROJECT_DIR$/src/screens/OrderStatusScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/OrdersScreen.js" />
         <option value="$PROJECT_DIR$/src/screens/LoginScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/OrderStatusScreen.js" />
+        <option value="$PROJECT_DIR$/src/screens/ShippingDataScreen.js" />
       </list>
     </option>
   </component>
@@ -623,12 +614,12 @@
       <workItem from="1512820654989" duration="26505000" />
       <workItem from="1512859245083" duration="247000" />
       <workItem from="1512874491242" duration="2000" />
-      <workItem from="1512902360474" duration="6662000" />
+      <workItem from="1512902360474" duration="6767000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33416000" />
+    <option name="totallyTimeSpent" value="33521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="803" extended-state="6" />
@@ -669,14 +660,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/assets/models/all.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14925">
-          <caret line="995" column="26" lean-forward="false" selection-start-line="995" selection-start-column="20" selection-end-line="995" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-fabricjs/src/StaticCanvas.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1066,22 +1049,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/screens/OrderStatusScreen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="62" lean-forward="false" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/AppContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/screens/LoginScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1094,6 +1061,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="43" column="78" lean-forward="false" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/AppContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/OrderStatusScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/screens/ShippingDataScreen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="45" column="34" lean-forward="false" selection-start-line="45" selection-start-column="34" selection-end-line="45" selection-end-column="34" />
           <folding />
         </state>
       </provider>
