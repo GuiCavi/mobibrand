@@ -53,11 +53,17 @@ class ThirdStep extends Component {
                     <Button
                         text='Anterior'
                         secondary
+                        onClick={() => {
+                            this.props.setStep(2)
+                        }}
                     />
 
                     <Button
                         text='Próximo'
                         isCta
+                        onClick={() => {
+                            this.props.setStep(3)
+                        }}
                     />
                 </div>
             </div>

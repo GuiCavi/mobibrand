@@ -9,8 +9,16 @@ class Steper extends Component {
         super();
 
         this.state = {
-            currentStep: 3
+            currentStep: 0
         }
+
+        this._setStep = this._setStep.bind(this);
+    }
+
+    _setStep(step) {
+        this.setState({
+            currentStep: step
+        })
     }
 
     render() {
@@ -31,6 +39,7 @@ class Steper extends Component {
                     index={i}
                     active={this.state.currentStep == i}
                     bulletCount={Object.keys(this.props.steps).length}
+                    setStep={this._setStep}
                 />
             );
             i++;

@@ -61,6 +61,9 @@ class FirstStep extends Component {
                     <Button
                         text='Próximo'
                         isCta
+                        onClick={() => {
+                            this.props.setStep(1)
+                        }}
                     />
                 </div>
             </div>

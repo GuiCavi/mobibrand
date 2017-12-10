@@ -47,11 +47,17 @@ class SecondStep extends Component {
                     <Button
                         text='Anterior'
                         secondary
+                        onClick={() => {
+                            this.props.setStep(1)
+                        }}
                     />
 
                     <Button
                         text='Próximo'
                         isCta
+                        onClick={() => {
+                            this.props.setStep(2)
+                        }}
                     />
                 </div>
             </div>

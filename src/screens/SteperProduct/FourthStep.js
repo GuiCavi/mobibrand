@@ -47,6 +47,9 @@ class FourthStep extends Component {
                     <Button
                         text='Anterior'
                         secondary
+                        onClick={() => {
+                            this.props.setStep(3)
+                        }}
                     />
 
                     <Button

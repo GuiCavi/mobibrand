@@ -16,7 +16,11 @@ class Button extends Component {
         });
 
         return (
-            <div className={btnClass}>
+            <div className={btnClass} onClick={() => {
+                if (this.props.onClick) {
+                    this.props.onClick();
+                }
+            }}>
                 {this.props.text || 'Button'}
             </div>
         );
