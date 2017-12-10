@@ -10,6 +10,7 @@ import SelectableTemplates from './SelectableTemplates';
 import RadioButton from './RadioButton';
 import Input from './Input';
 import ColorPicker from './ColorPicker';
+import ThemeList from './ThemeList';
 
 export {
     Button,
@@ -23,5 +24,6 @@ export {
     SelectableTemplates,
     RadioButton,
     Input,
-    ColorPicker
+    ColorPicker,
+    ThemeList
 }
