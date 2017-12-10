@@ -1,16 +1,24 @@
 .colorpicker-wrapper {
-   display: inline-block;
-   text-align: center;
-   margin-left: 15px;
-   margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 .colorpicker {
-    width: 46;
-    height: 46;
-    border: 1 solid #333;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #666;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.colorpicker-color {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
 }

@@ -9,6 +9,7 @@ import SteperBullets from './SteperBullets';
 import SelectableTemplates from './SelectableTemplates';
 import RadioButton from './RadioButton';
 import Input from './Input';
+import ColorPicker from './ColorPicker';
 
 export {
     Button,
@@ -21,5 +22,6 @@ export {
     SteperBullets,
     SelectableTemplates,
     RadioButton,
-    Input
+    Input,
+    ColorPicker
 }
