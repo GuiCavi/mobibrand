@@ -6,7 +6,7 @@ import {
     HomeScreen,
     LoginScreen,
     ProductWizardScreen,
-    OrdersScreen
+    OrdersScreen,
     ShippingDataScreen,
     ConclusionScreen
 } from '../screens';
